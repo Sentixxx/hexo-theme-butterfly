@@ -235,6 +235,10 @@ post_edit:
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
   url:
 
+# Keep latest/related posts consistent with the site's index_generator.exclude_tags.
+# Does not exclude index_generator.exclude_categories from these lists.
+respect_index_exclude_tags: true
+
 # Related Articles
 related_post:
   enable: true
@@ -776,7 +780,7 @@ site_verification:
 #   button_hover: "#FF7242"
 #   text_selection: "#00c4b6"
 #   link_color: "#99a9bf"
-#   meta_color: "#858585"
+#   meta_color: "#666666"
 #   hr_color: "#A4D8FA"
 #   code_foreground: "#F47466"
 #   code_background: "rgba(27, 31, 35, .05)"

@@ -8,6 +8,7 @@
 'use strict'
 
 const { postDesc } = require('../common/postDesc')
+const isVisiblePost = require('../common/visible_post')
 
 hexo.extend.helper.register('related_posts', function (currentPost) {
   const relatedPosts = new Map()
@@ -18,7 +19,7 @@ hexo.extend.helper.register('related_posts', function (currentPost) {
   tagsData.forEach(tag => {
     const posts = tag.posts
     posts.forEach(post => {
-      if (currentPost.path === post.path) return
+      if (currentPost.path === post.path || !isVisiblePost(post, hexo.config, hexo.theme.config)) return
 
       if (relatedPosts.has(post.path)) {
         relatedPosts.get(post.path).weight += 1
@@ -71,7 +72,7 @@ hexo.extend.helper.register('related_posts', function (currentPost) {
     const className = desc ? 'pagination-related' : 'pagination-related no-desc'
     result += `<a class="${className}" href="${url_for(path)}" title="${title}">`
     if (cover_type === 'img') {
-      result += `<img class="cover" src="${url_for(cover)}" alt="cover">`
+      result += `<img class="cover${post.cover_fit === 'contain' ? ' cover-fit-contain' : ''}" src="${url_for(cover)}" alt="cover">`
     } else {
       result += `<div class="cover" style="background: ${cover}"></div>`
     }

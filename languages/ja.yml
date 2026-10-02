@@ -46,6 +46,8 @@ search:
     hits_stats: '${hits} 件の記事が見つかりました'
 
 pagination:
+  prev_page: 前のページ
+  next_page: 次のページ
   prev: 前へ
   next: 次へ
   page_info: '${current} ページ / 合計 ${total} ページ'

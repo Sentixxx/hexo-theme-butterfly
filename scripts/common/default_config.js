@@ -111,6 +111,7 @@ module.exports = {
     enable: false,
     url: null
   },
+  respect_index_exclude_tags: true,
   related_post: {
     enable: true,
     limit: 6,

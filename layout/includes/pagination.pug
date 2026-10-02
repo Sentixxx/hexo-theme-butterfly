@@ -1,8 +1,8 @@
 if page.total !== 1
   -
     var options = {
-      prev_text: '<i class="fas fa-chevron-left fa-fw"></i>',
-      next_text: '<i class="fas fa-chevron-right fa-fw"></i>',
+      prev_text: '<i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i><span class="pagination-label">' + escape_html(_p('pagination.prev_page')) + '</span>',
+      next_text: '<i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i><span class="pagination-label">' + escape_html(_p('pagination.next_page')) + '</span>',
       mid_size: 1,
       escape: false
     }
@@ -17,9 +17,9 @@ if page.total !== 1
           - let className = key === 'prev' ? (paginationOrder.next ? '' : 'full-width') : (paginationOrder.prev ? '' : 'full-width')
           - className = getPostDesc ? className : className + ' no-desc'
 
-          a.pagination-related(class=className href=url_for(direction.path) title=direction.title)
+          a.pagination-related(class=className href=url_for(direction.path) title=direction.title aria-label=_p(`pagination.${key}`) + ': ' + direction.title)
             if direction.cover_type === 'img'
-              img.cover(src=url_for(direction.pagination_cover || direction.cover) onerror=`onerror=null;src='${url_for(theme.error_img.post_page)}'` alt=`cover of ${key === 'prev' ? 'previous' : 'next'} post`)
+              img.cover(class=direction.cover_fit === 'contain' ? 'cover-fit-contain' : '' src=url_for(direction.pagination_cover || direction.cover) onerror=`onerror=null;src='${url_for(theme.error_img.post_page)}'` alt=`cover of ${key === 'prev' ? 'previous' : 'next'} post`)
             else
               .cover(style=`background: ${direction.cover || 'var(--default-bg-color)'}`)
 

@@ -215,3 +215,9 @@ post_source_notice:
 ```
 
 `base_url` 留空时使用 Hexo 的 `url`；文章链接由站点地址和该文章的发布路径组成，支持站点子目录。文本作为纯文本转义显示。单篇文章可在 front matter 中设置 `source_notice: false` 隐藏声明。已有 Markdown 内的声明需要自行移除，主题不会改写文章内容。
+
+## 推荐列表与封面显示
+
+最新文章和相关推荐默认遵循站点 `index_generator.exclude_tags`，例如设置 `[hide]` 后，两处列表都会排除带 `hide` 标签的文章。主题配置 `respect_index_exclude_tags: false` 可关闭这一行为；首页排除的分类不会自动影响这两处列表。
+
+正文首图较宽或需要完整显示时，在文章 front matter 中设置 `cover_fit: contain`。首页、归档、侧栏、相关推荐和相邻文章卡片会完整显示封面，头图未单独指定 `top_img` 时也会完整显示。留空仍采用原来的裁剪方式。此设置不改变首图选择和固定随机封面的回退规则。

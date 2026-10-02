@@ -1,0 +1,10 @@
+// A per-post opt-in for screenshots and very wide first images.
+// Override the shared cover/hover rules so the full image remains visible.
+img.cover-fit-contain
+  object-fit: contain !important
+  transform: none !important
+  background-color: var(--card-bg)
+
+#page-header.cover-fit-contain
+  background-size: contain
+  background-color: #1f2d3d

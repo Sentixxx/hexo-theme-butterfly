@@ -46,6 +46,8 @@ search:
     hits_stats: '${hits} articles found'
 
 pagination:
+  prev_page: Previous page
+  next_page: Next page
   prev: Previous
   next: Next
   page_info: 'Page ${current} of ${total}' 

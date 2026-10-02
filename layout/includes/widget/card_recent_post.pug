@@ -6,7 +6,7 @@ if theme.aside.card_recent_post.enable
     .aside-list
       - let postLimit = theme.aside.card_recent_post.limit === 0 ? site.posts.length : theme.aside.card_recent_post.limit || 5
       - let sort = theme.aside.card_recent_post.sort === 'updated' ? 'updated' : 'date'
-      - site.posts.sort(sort, -1).limit(postLimit).each(function(article){
+      - visible_posts(site.posts).sort(sort, -1).limit(postLimit).each(function(article){
         - let link = article.link || article.path
         - let title = article.title || _p('no_title')
         - let no_cover = article.cover === false || !theme.cover.aside_enable ? 'no-cover' : ''
@@ -15,7 +15,7 @@ if theme.aside.card_recent_post.enable
           if post_cover && theme.cover.aside_enable
             a.thumbnail(href=url_for(link) title=title)
               if article.cover_type === 'img'
-                img(src=url_for(post_cover) onerror=`this.onerror=null;this.src='${url_for(theme.error_img.post_page)}'` alt=title)
+                img(class=article.cover_fit === 'contain' ? 'cover-fit-contain' : '' src=url_for(post_cover) onerror=`this.onerror=null;this.src='${url_for(theme.error_img.post_page)}'` alt=title)
               else
                 div(style=`background: ${post_cover}`)
           .content
