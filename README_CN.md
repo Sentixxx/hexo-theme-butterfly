@@ -190,3 +190,14 @@ npm install hexo-renderer-pug hexo-renderer-stylus --save
 
 **✨ 如果這個主題對您有幫助，請給我們一個 ⭐ Star！✨**
 </div>
+# 此 fork 的自动文章封面
+
+文章 front matter 设置 `cover_auto: true` 后，生成时优先采用正文渲染出的第一张图片；无正文图片时采用原始 `cover`，再回退到主题默认封面。适合 Obsidian 模板在创建文章时把一次性随机图片外链保存到 `cover`。
+
+```yaml
+cover: https://pixiv.re/98229452.jpg
+cover_auto: true
+top_img:
+```
+
+`top_img` 留空时沿用 Butterfly 原有的 `top_img → cover → default_top_img` 规则，首页缩略图和文章头图因此一致。显式 `top_img`、`top_img: false`、`cover: false` 保持原有语义。要手工固定封面，设置 `cover_auto: false`。生成过程不回写 Markdown，也不下载图片；增删正文图片后重新生成即可生效。

@@ -4,7 +4,7 @@
   "description": "A Simple and Card UI Design theme for Hexo",
   "main": "package.json",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test test/*.test.js"
   },
   "keywords": [
     "hexo",
@@ -23,6 +23,7 @@
     "email": "my@crazywong.com"
   },
   "dependencies": {
+    "hexo-front-matter": "^4.2.1",
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-util": "^4.0.0",

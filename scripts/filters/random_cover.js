@@ -4,6 +4,8 @@
 
 'use strict'
 
+const selectFirstPostImage = require('../common/first_post_image')
+
 hexo.extend.generator.register('post', locals => {
   const imgTestReg = /\.(png|jpe?g|gif|svg|webp|avif)(\?.*)?$/i
   const remoteImgReg = /^(?:https?:)?\/\//i
@@ -67,6 +69,7 @@ hexo.extend.generator.register('post', locals => {
   }
 
   const handleImg = data => {
+    selectFirstPostImage(data)
     data.top_img = resolvePostAsset(data.top_img, data.path)
     data.cover = resolvePostAsset(data.cover, data.path)
     data.pagination_cover = resolvePostAsset(data.pagination_cover, data.path)
