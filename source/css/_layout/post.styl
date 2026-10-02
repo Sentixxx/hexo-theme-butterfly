@@ -157,6 +157,20 @@ beautify()
         beautify()
 
 #post
+  .post-source-notice
+    margin: 0 0 24px
+    padding: 10px 16px
+    border-left: 3px solid $theme-color
+    background: var(--blockquote-bg)
+    color: var(--font-color)
+    font-size: .9em
+    overflow-wrap: anywhere
+    addBorderRadius(3)
+
+    a
+      color: $theme-link-color
+      text-decoration: underline
+
   .tag_share
     &:after
       display: block

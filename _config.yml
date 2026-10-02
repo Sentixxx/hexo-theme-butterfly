@@ -199,6 +199,15 @@ toc:
   style_simple: false
   scroll_percent: true
 
+# Website-only notice above the article; excluded from excerpts, feeds and search.
+# Set source_notice: false in an article's front matter to hide it.
+post_source_notice:
+  enable: false
+  # Canonical site URL; defaults to Hexo's url. A subdirectory is supported.
+  base_url:
+  text: 如果你在其他平台看到这篇文章，欢迎访问原文：
+  link_text: 阅读原文
+
 post_copyright:
   enable: true
   decode: false

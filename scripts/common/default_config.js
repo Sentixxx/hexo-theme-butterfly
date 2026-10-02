@@ -89,6 +89,12 @@ module.exports = {
     style_simple: false,
     scroll_percent: true
   },
+  post_source_notice: {
+    enable: false,
+    base_url: null,
+    text: '如果你在其他平台看到这篇文章，欢迎访问原文：',
+    link_text: '阅读原文'
+  },
   post_copyright: {
     enable: true,
     decode: false,

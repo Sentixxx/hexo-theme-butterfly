@@ -1,0 +1,6 @@
+- const sourceNotice = post_source_notice(page)
+if sourceNotice
+  aside.post-source-notice
+    span= sourceNotice.text
+    | 
+    a(href=sourceNotice.href)= sourceNotice.linkText

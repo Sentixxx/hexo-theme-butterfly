@@ -201,3 +201,17 @@ top_img:
 ```
 
 `top_img` 留空时沿用 Butterfly 原有的 `top_img → cover → default_top_img` 规则，首页缩略图和文章头图因此一致。显式 `top_img`、`top_img: false`、`cover: false` 保持原有语义。要手工固定封面，设置 `cover_auto: false`。生成过程不回写 Markdown，也不下载图片；增删正文图片后重新生成即可生效。
+
+## 网页来源声明
+
+在站点 `_config.butterfly.yml` 中启用来源声明，文章模板会将它显示在正文上方、`article#article-container` 之外。声明不会写入 Markdown，也不会进入首页摘要、订阅源或搜索内容。
+
+```yaml
+post_source_notice:
+  enable: true
+  base_url: https://blog.example.com
+  text: 如果你在其他平台看到这篇文章，欢迎访问原文：
+  link_text: 阅读原文
+```
+
+`base_url` 留空时使用 Hexo 的 `url`；文章链接由站点地址和该文章的发布路径组成，支持站点子目录。文本作为纯文本转义显示。单篇文章可在 front matter 中设置 `source_notice: false` 隐藏声明。已有 Markdown 内的声明需要自行移除，主题不会改写文章内容。
